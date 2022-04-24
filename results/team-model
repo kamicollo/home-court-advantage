@@ -1,0 +1,82 @@
+digraph {
+	subgraph "cluster422 x 60" {
+		team_identifiers [label="team_identifiers
+~
+ConstantData" shape=box style="rounded, filled"]
+		label="422 x 60" labeljust=r labelloc=b style=rounded
+	}
+	subgraph "cluster422 x 1" {
+		observed [label="observed
+~
+Normal" shape=ellipse style=filled]
+		home_pos [label="home_pos
+~
+ConstantData" shape=box style="rounded, filled"]
+		scores [label="scores
+~
+ConstantData" shape=box style="rounded, filled"]
+		cup [label="cup
+~
+ConstantData" shape=box style="rounded, filled"]
+		label="422 x 1" labeljust=r labelloc=b style=rounded
+	}
+	subgraph "cluster60 x 1" {
+		priors [label="priors
+~
+ConstantData" shape=box style="rounded, filled"]
+		pair_strength [label="pair_strength
+~
+Normal" shape=ellipse]
+		label="60 x 1" labeljust=r labelloc=b style=rounded
+	}
+	subgraph "cluster422 x 16" {
+		home_team [label="home_team
+~
+ConstantData" shape=box style="rounded, filled"]
+		label="422 x 16" labeljust=r labelloc=b style=rounded
+	}
+	home_var [label="home_var
+~
+Gamma" shape=ellipse]
+	pair_var [label="pair_var
+~
+Gamma" shape=ellipse]
+	error_var [label="error_var
+~
+Gamma" shape=ellipse]
+	cup_var [label="cup_var
+~
+Gamma" shape=ellipse]
+	home_var_team [label="home_var_team
+~
+Gamma" shape=ellipse]
+	subgraph "cluster1 x 1" {
+		cup_impact [label="cup_impact
+~
+Normal" shape=ellipse]
+		regular_advantage [label="regular_advantage
+~
+Normal" shape=ellipse]
+		label="1 x 1" labeljust=r labelloc=b style=rounded
+	}
+	subgraph "cluster16 x 1" {
+		regular_advantage_team [label="regular_advantage_team
+~
+Normal" shape=ellipse]
+		label="16 x 1" labeljust=r labelloc=b style=rounded
+	}
+	pair_var -> pair_strength
+	priors -> pair_strength
+	home_var -> regular_advantage
+	home_var_team -> regular_advantage_team
+	regular_advantage -> regular_advantage_team
+	cup_var -> cup_impact
+	error_var -> observed
+	cup -> observed
+	regular_advantage_team -> observed
+	home_team -> observed
+	pair_strength -> observed
+	team_identifiers -> observed
+	cup_impact -> observed
+	home_pos -> observed
+}
