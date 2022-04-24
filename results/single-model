@@ -6,9 +6,6 @@ ConstantData" shape=box style="rounded, filled"]
 		label="422 x 60" labeljust=r labelloc=b style=rounded
 	}
 	subgraph "cluster422 x 1" {
-		observed [label="observed
-~
-Normal" shape=ellipse style=filled]
 		home_pos [label="home_pos
 ~
 ConstantData" shape=box style="rounded, filled"]
@@ -18,6 +15,9 @@ ConstantData" shape=box style="rounded, filled"]
 		cup [label="cup
 ~
 ConstantData" shape=box style="rounded, filled"]
+		observed [label="observed
+~
+Normal" shape=ellipse style=filled]
 		label="422 x 1" labeljust=r labelloc=b style=rounded
 	}
 	subgraph "cluster60 x 1" {
@@ -29,9 +29,6 @@ ConstantData" shape=box style="rounded, filled"]
 Normal" shape=ellipse]
 		label="60 x 1" labeljust=r labelloc=b style=rounded
 	}
-	home_var [label="home_var
-~
-Gamma" shape=ellipse]
 	pair_var [label="pair_var
 ~
 Gamma" shape=ellipse]
@@ -41,11 +38,14 @@ Gamma" shape=ellipse]
 	cup_var [label="cup_var
 ~
 Gamma" shape=ellipse]
+	home_var [label="home_var
+~
+Gamma" shape=ellipse]
 	subgraph "cluster1 x 1" {
-		cup_impact [label="cup_impact
+		regular_advantage [label="regular_advantage
 ~
 Normal" shape=ellipse]
-		regular_advantage [label="regular_advantage
+		cup_impact [label="cup_impact
 ~
 Normal" shape=ellipse]
 		label="1 x 1" labeljust=r labelloc=b style=rounded
@@ -54,11 +54,11 @@ Normal" shape=ellipse]
 	priors -> pair_strength
 	home_var -> regular_advantage
 	cup_var -> cup_impact
-	error_var -> observed
-	regular_advantage -> observed
-	pair_strength -> observed
-	cup -> observed
 	team_identifiers -> observed
-	cup_impact -> observed
 	home_pos -> observed
+	cup_impact -> observed
+	cup -> observed
+	pair_strength -> observed
+	regular_advantage -> observed
+	error_var -> observed
 }
