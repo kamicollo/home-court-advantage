@@ -13,15 +13,15 @@ class OneAdvantage(Model):
         is_cup = pm.ConstantData("cup", data['is_cup'])           
 
         #hyper params for variance
-        pair_strength_var = pm.Gamma("pair_var", alpha=0.001, beta=0.001)
-        home_var = pm.Gamma("home_var", alpha=0.001, beta=0.001)
-        cup_var = pm.Gamma("cup_var", alpha=0.001, beta=0.001)
-        error_var = pm.Gamma("error_var", alpha=0.001, beta=0.001)
+        pair_strength_var = pm.HalfCauchy("pair_var", beta=5)
+        home_var = pm.HalfCauchy("home_var", beta=5)
+        cup_var = pm.HalfCauchy("cup_var", beta=5)
+        error_var = pm.HalfCauchy("error_var", beta=5)
         
         #parameters of interest
-        teampairstrength = pm.Normal("pair_strength", mu=strength_priors, tau = pair_strength_var, shape=(data['no_pairs'], 1))
-        home_advantage = pm.Normal("regular_advantage", mu=4, tau=home_var, shape=(1,1))
-        cup_impact = pm.Normal("cup_impact", mu=0, tau=cup_var, shape=(1,1))
+        teampairstrength = pm.Normal("pair_strength", mu=strength_priors, sigma = pair_strength_var, shape=(data['no_pairs'], 1))
+        home_advantage = pm.Normal("regular_advantage", mu=4, sigma=home_var, shape=(1,1))
+        cup_impact = pm.Normal("cup_impact", mu=0, sigma=cup_var, shape=(1,1))
 
         #calculation of score
         strength_score = pm.math.dot(teams, teampairstrength)
@@ -29,4 +29,4 @@ class OneAdvantage(Model):
         full_score = strength_score + home_score
 
         #likelihood        
-        pm.Normal("observed", mu=full_score, tau=error_var, observed=scores)
+        pm.Normal("observed", mu=full_score, sigma=error_var, observed=scores)
