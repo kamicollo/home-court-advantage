@@ -1,22 +1,12 @@
-# Estimating the home count advantage in Lithuanian Basketball League using Bayesian methods. 
+# Estimating the home-court advantage in Lithuanian Basketball League using Bayesian methods. 
 
-In this project, I applied Bayesian methods to estimate home-court advantage in the Lithuanian
-Basketball League. In line with prior research, I find that home-court advantage exists,
-and its overall magnitude is somewhat smaller than what has been identified in the research
-focused on US basketball (c. 2.3 - 2.6 points vs. above 4 points identified in the US). Intuitively,
-this makes sense given smaller arena sizes in Lithuania and thus, arguably, smaller
-spectator impact, as well smaller distances that the opponent teams need to travel compared
-to the US.
+In this project, I applied Bayesian methods to estimate home-court advantage in the Lithuanian Basketball League. In line with prior research, I find that home-court advantage exists, and its overall magnitude is somewhat smaller than what has been identified in the research focused on US basketball (c. 2.3 - 2.6 points vs. above 4 points identified in the US). Intuitively, this makes sense given smaller arena sizes in Lithuania and thus, arguably, smaller spectator impact, as well smaller distances that the opponent teams need to travel compared to the US.
 
-I also explored whether team-specific models perform better, with inconclusive results. It
-appears that the models that allow for team-specific home-court advantages perform similarly
-to the ones that treat home-court advantage as a uniform phenomenon. At the same time,
-such models do not necessarily perform worse, and provide further insights into team-level
-dynamics, where it appears that only a fraction of the teams benefit from a consistent home-court
-advantage.
+I also explored whether team-specific models perform better, with inconclusive results. It appears that the models that allow for team-specific home-court advantages perform similarly to the ones that treat home-court advantage as a uniform phenomenon. At the same time, such models do not necessarily perform worse, and provide further insights into team-level dynamics, where it appears that only a fraction of the teams benefit from a consistent home-court advantage.
 
 
 # Directory structure
+```
 ├── LICENSE
 ├── README.md
 ├── data
@@ -39,3 +29,4 @@ advantage.
     ├── 5-seasons-trace.png
     ├── home_court_eda.png
     └── model_cmp.png
+```
